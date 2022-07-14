@@ -1,7 +1,7 @@
 version: '3.6'
 services:
   customer-site-fe:
-    image: rocketsgraphql/customer-site-fe:latest
+    image: rocketsgraphql/next-fe:latest
     env_file:
       - ./fe-envfile
     restart: always
