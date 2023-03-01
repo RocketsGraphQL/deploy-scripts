@@ -1,4 +1,4 @@
 
 rocketgraph.io {
-    reverse_proxy customer-site-fe:2368
+    reverse_proxy customer-site-fe:9001
 }
