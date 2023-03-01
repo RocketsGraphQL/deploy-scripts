@@ -1,5 +1,18 @@
 version: '3.6'
 services:
+  caddy:
+    image: caddy:2-alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /data/caddy/Caddyfile: /etc/caddy/Caddyfile
+      - /data/caddy/data: /data
+      - /data/caddy/config: /config
+    networks:
+      - web
+      - internal
   customer-site-fe:
     image: rocketsgraphql/next-fe:latest
     env_file:
