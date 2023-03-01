@@ -7,7 +7,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - $PWD/data/caddy:/etc/caddy
+    - $PWD/data/caddy/Caddyfile:/etc/caddy/Caddyfile
     networks:
       - web
       - internal
