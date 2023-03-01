@@ -1,23 +1,12 @@
 version: '3.6'
 services:
-  caddy:
-    image: caddy:2-alpine
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-    - $PWD/data/caddy/Caddyfile:/etc/caddy/Caddyfile
-    networks:
-      - web
-      - internal
   customer-site-fe:
     image: rocketsgraphql/next-fe:latest
     env_file:
       - ./fe-envfile
     restart: always
     ports:
-      - "9001:90"
+      - 9001:9001
     depends_on:
       - "customer-site-be"
     links:
