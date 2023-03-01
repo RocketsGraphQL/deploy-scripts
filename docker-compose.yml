@@ -36,4 +36,11 @@ services:
     ports:
       - "3000:3000"
     restart: always
+networks:
+  web:
+    external: true
+  internal:
+    external: false
+    driver: bridge
+
 
