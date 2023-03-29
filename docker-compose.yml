@@ -16,7 +16,7 @@ services:
     env_file:
       - ./be-envfile
     ports:
-      - "5000:5000"
+      - "7777:7777"
     restart: always
   customer-site-docs:
     image: rocketsgraphql/customer-site-docs:latest

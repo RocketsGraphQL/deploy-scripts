@@ -12,10 +12,10 @@ rocketgraph.io {
   reverse_proxy http://localhost:9001
   log {
     output file /var/log/caddy/rocketgraph.io.log {
-        roll_size 10mb
-        roll_keep 20
-        roll_keep_for 720h
-      }
+      roll_size 10mb
+      roll_keep 20
+      roll_keep_for 720h
+    }
   }
 }
 blog.rocketgraph.io {
