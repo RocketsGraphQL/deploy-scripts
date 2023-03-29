@@ -1,4 +1,28 @@
 
+# The Caddyfile is an easy way to configure your Caddy web server.
+#
+# Unless the file starts with a global options block, the first
+# uncommented line is always the address of your site.
+#
+# To use your own domain name (with automatic HTTPS), first make
+# sure your domain's A/AAAA DNS records are properly pointed to
+# this machine's public IP, then replace ":80" below with your
+# domain name.
 rocketgraph.io {
-    reverse_proxy customer-site-fe:9001
+  reverse_proxy http://localhost:9001
+  log {
+    output file /var/log/caddy/rocketgraph.io.log {
+        roll_size 10mb
+        roll_keep 20
+        roll_keep_for 720h
+      }
+  }
 }
+blog.rocketgraph.io {
+  reverse_proxy http://localhost:4000
+}
+docs.rocketgraph.io {
+  reverse_proxy http://localhost:3000
+}
+# Refer to the Caddy docs for more information:
+# https://caddyserver.com/docs/caddyfile
