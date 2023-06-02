@@ -19,7 +19,7 @@ rocketgraph.io {
   }
 }
 blog.rocketgraph.io {
-  reverse_proxy http://localhost:4000
+  reverse_proxy http://localhost:3001
 }
 docs.rocketgraph.io {
   reverse_proxy http://localhost:3000
