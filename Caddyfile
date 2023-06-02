@@ -8,8 +8,29 @@
 # sure your domain's A/AAAA DNS records are properly pointed to
 # this machine's public IP, then replace ":80" below with your
 # domain name.
+
 rocketgraph.io {
   reverse_proxy http://localhost:9001
+
+	handle /api/* {
+		reverse_proxy http://localhost:7777
+	}
+	handle /webhooks/* {
+		reverse_proxy http://localhost:7777
+	}
+	handle /awswebhooks/* {
+		reverse_proxy http://localhost:7777
+	}
+	handle /metadata/* {
+		reverse_proxy http://localhost:7777
+	}
+	handle /admin/* {
+		reverse_proxy http://localhost:7777
+	}
+	handle /auth/* {
+		reverse_proxy http://localhost:8000
+	}
+
   log {
     output file /var/log/caddy/rocketgraph.io.log {
       roll_size 10mb
@@ -24,5 +45,9 @@ blog.rocketgraph.io {
 docs.rocketgraph.io {
   reverse_proxy http://localhost:3000
 }
+hasura-endpoint.rocketgraph.io {
+  reverse_proxy * localhost:8080
+}
+
 # Refer to the Caddy docs for more information:
 # https://caddyserver.com/docs/caddyfile
