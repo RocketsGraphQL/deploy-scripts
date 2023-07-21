@@ -76,9 +76,9 @@
 curl -d '
     {
         "type": "run_sql",
-        "source": "AWS RDS Production DB",
+        "source": "AWS RDS Production Database",
         "args": {
-            "source": "AWS RDS Production DB",
+            "source": "AWS RDS Production Database",
             "cascade": true,
             "sql": "CREATE TABLE users(id uuid NOT NULL DEFAULT gen_random_uuid(), name text, email text NOT NULL, passwordhash text, PRIMARY KEY (id));"
         }
@@ -92,9 +92,9 @@ curl -d '
 curl -d '
     {
         "type": "run_sql",
-        "source": "AWS RDS Production DB",
+        "source": "AWS RDS Production Database",
         "args": {
-            "source": "AWS RDS Production DB",
+            "source": "AWS RDS Production Database",
             "cascade": true,
             "sql": "CREATE TABLE Customers(id uuid NOT NULL DEFAULT gen_random_uuid(), email text, stripe_id text, PRIMARY KEY (id));"
         }
@@ -108,11 +108,11 @@ curl -d '
 curl -d '
     {
         "type": "run_sql",
-        "source": "AWS RDS Production DB",
+        "source": "AWS RDS Production Database",
         "args": {
-            "source": "AWS RDS Production DB",
+            "source": "AWS RDS Production Database",
             "cascade": true,
-            "sql": "CREATE TABLE Instances(id uuid NOT NULL DEFAULT gen_random_uuid(), name text, owner text, ip_address text, hasura_endpoint text, hasura_secret text, instance_id text, postgresql_endpoint text, postgres_password text, state text, user_id UUID, backend_endpoint text, serverless text, lambda_endpoint text, PRIMARY KEY (id));"
+            "sql": "CREATE TABLE Instances(id uuid NOT NULL DEFAULT gen_random_uuid(), name text, owner text, ip_address text, hasura_endpoint text, hasura_secret text, instance_id text, postgresql_endpoint text, postgres_password text, state text, user_id UUID, backend_endpoint text, serverless text, lambda_endpoint text, db_instance_identifier text, aws_rds_state text, PRIMARY KEY (id));"
         }
     }
 ' -H "Content-Type: application/json" \
@@ -124,9 +124,9 @@ curl -d '
 curl -d '
     {
         "type": "run_sql",
-        "source": "AWS RDS Production DB",
+        "source": "AWS RDS Production Database",
         "args": {
-            "source": "AWS RDS Production DB",
+            "source": "AWS RDS Production Database",
             "cascade": true,
             "sql": "CREATE TABLE commits(id uuid NOT NULL DEFAULT gen_random_uuid(), repo_id text, commit_id text, message text, name text, email text, username text, author text, PRIMARY KEY (id));"
         }
@@ -140,9 +140,9 @@ curl -d '
 curl -d '
     {
         "type": "run_sql",
-        "source": "AWS RDS Production DB",
+        "source": "AWS RDS Production Database",
         "args": {
-            "source": "AWS RDS Production DB",
+            "source": "AWS RDS Production Database",
             "cascade": true,
             "sql": "CREATE TABLE Serverless(id uuid NOT NULL DEFAULT gen_random_uuid(), filename text, function_name text, installation_id text, instance_id text, url text, username text, author text, PRIMARY KEY (id));"
         }
