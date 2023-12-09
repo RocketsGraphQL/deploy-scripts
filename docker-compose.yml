@@ -18,11 +18,11 @@ services:
     ports:
       - "7777:7777"
     restart: always
-  customer-site-docs:
-    image: rocketsgraphql/customer-site-docs:latest
-    ports:
-      - "3000:3000"
-    restart: always
+  # customer-site-docs:
+  #   image: rocketsgraphql/customer-site-docs:latest
+  #   ports:
+  #     - "3000:3000"
+  #   restart: always
 networks:
   web:
     external: true
