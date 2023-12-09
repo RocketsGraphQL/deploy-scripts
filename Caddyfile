@@ -30,6 +30,9 @@ rocketgraph.io {
 	handle /auth/* {
 		reverse_proxy http://localhost:8000
 	}
+	handle /demo/* {
+		reverse_proxy http://localhost:7777
+	}
 
   log {
     output file /var/log/caddy/rocketgraph.io.log {
@@ -40,7 +43,7 @@ rocketgraph.io {
   }
 }
 blog.rocketgraph.io {
-  reverse_proxy http://localhost:3001
+  reverse_proxy http://localhost:6000
 }
 docs.rocketgraph.io {
   reverse_proxy http://localhost:3000

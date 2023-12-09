@@ -1,7 +1,7 @@
 version: '3.6'
 services:
   customer-site-fe:
-    image: rocketsgraphql/next-fe:latest
+    image: rocketsgraphql/next-fe:v0.3.0.experimental
     env_file:
       - ./fe-envfile
     restart: always
@@ -12,17 +12,25 @@ services:
     links:
       - "customer-site-be"
   customer-site-be:
-    image: rocketsgraphql/customer-site-be:latest
+    image: rocketsgraphql/customer-site-be:v0.3.1
     env_file:
       - ./be-envfile
+    volumes:
+      - ./code_to_compile_lambda:/go/src/example.com/m/code_to_compile_lambda
     ports:
       - "7777:7777"
     restart: always
-  # customer-site-docs:
-  #   image: rocketsgraphql/customer-site-docs:latest
-  #   ports:
-  #     - "3000:3000"
-  #   restart: always
+  customer-site-docs:
+    image: rocketsgraphql/customer-site-docs:latest
+    ports:
+      - "3000:3000"
+    restart: always
+volumes:
+  code_to_compile_lambda:
+    driver: local
+    driver_opts:
+      device: ./code_to_compile_lambda
+      type: none
 networks:
   web:
     external: true
